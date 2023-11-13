@@ -1,10 +1,10 @@
 ## collections
-```
+```py
 import collections
 ```
 
 ## deque
-```
+```py
 from collection import deque
 
 dq = deque()
@@ -24,7 +24,7 @@ dq.extendleft(iterable)
 - extend 에 iterable 객체를 넣으면 요소를 추가한다. extendleft를 하면 순서대로 각 요소를 appendleft 하는 것과 같다.
 
 ### OrderedDict
-```
+```py
 from collections import OrderedDict
 
 od = OrderedDict()
@@ -53,7 +53,7 @@ des_sorted_od = OrderedDict(
 - 이후에 나올 Counter도 각 요소의 개수를 dict로 반환하니 잘 사용할 수 있을듯함
 
 ## defaultdict
-```
+```py
 from collections import defaultdict
 
 dd_n = defaultdict(int)
@@ -63,7 +63,7 @@ dd_f = defaultdict(lambda: 0)   # 0으로 초기화
 - dict에서 기본값을 설정해줄 수 있다. 그냥 dict 쓰기보다는 defaultdict가 활용성이 훨씬 좋을듯 함
 
 ## Counter
-```
+```py
 from collections import Counter
 
 c = Counter(iterable)
