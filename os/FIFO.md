@@ -18,7 +18,10 @@ int main() {
 ```
 - 보통은 O_RDONLY, O_WRONLY 둘 중 하나로 오픈하는데, O_RDWR 으로 오픈하는 경우가 몇가지 있다.
   1. 단일 프로세스 내의 읽기/쓰기
-     - 테스트하거나 특별한 구현에 사용될 수 있다. 특별한 구현은 복잡한 설계가 필요하다.
+    - 테스트하거나 특별한 구현에 사용될 수 있다. 특별한 구현은 복잡한 설계가 필요하다.
   2. 블록킹 방지
-     - FIFO는 O_RDONLY로 오픈될 경우, O_WRONLY가 열릴 때 까지 블록킹된다.
-     - 그래서 O_RDWR으로 오픈하면 blocking 없이 진행할 수 있다.
+    - FIFO는 O_RDONLY로 오픈될 경우, O_WRONLY가 열릴 때 까지 블록킹된다.
+    - 그래서 O_RDWR으로 오픈하면 blocking 없이 진행할 수 있다.
+  3. Reader의 입장에서 writer가 없는 상황 대비
+    - O_RDONLY로 열었으면 writer가 없을 때 무한히 0을 리턴한다.
+    - O_RDWR으로 열었으면 writer가 없을 때 blocking 상태로 대기한다.
