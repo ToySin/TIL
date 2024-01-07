@@ -99,11 +99,13 @@
 - 워크플로에서 배포 부분은 다음과 같다. 위 파일의 아래에 이어지는 내용이다.
   ```
     ...
+    # 베퍼 Job
     deploy:
     needs: build
     name: Deploy
     runs-on: [ self-hosted, label-sfc ]
     steps:
+  
       # Docker Login 수행 (ghcr.io)
       - name: Login Docker
         uses: docker/login-action@v3.0.0
@@ -111,6 +113,7 @@
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
+  
       # Docker Container 생성
       - name: Create Docker Container
         run: |
